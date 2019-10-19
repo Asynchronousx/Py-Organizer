@@ -32,13 +32,7 @@ def organize(data, font):
        
         ## getting the current cwd
         curpath = os.getcwd()
-
-        #DAFUWQ??? ritorna falso
-        print(font)
-        if font == 1: 
-            print("y")
-        else: 
-            print("n")
+        
         
         ## Since we could have the "empty name folder ''", we must assure that we rename that extension with "Other".
         extfolder = "Other" if k=='' else (
