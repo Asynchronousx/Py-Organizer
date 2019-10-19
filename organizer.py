@@ -1,4 +1,5 @@
 import os
+from enum import Enum
 from pathlib import Path
 from pprint import pprint
 from collections import defaultdict
@@ -20,8 +21,10 @@ def get_files(data):
     ## checking files into that directory (uncomment)
     ## pprint(data)
 
+
+
 ## function to organize retrieved data into the appropriate folders
-def organize(data):
+def organize(data, font):
     print("Creating folders...")
 
     ## for each file into the file dictionary
@@ -30,8 +33,19 @@ def organize(data):
         ## getting the current cwd
         curpath = os.getcwd()
 
+        #DAFUWQ??? ritorna falso
+        print(font)
+        if font == 1: 
+            print("y")
+        else: 
+            print("n")
+        
         ## Since we could have the "empty name folder ''", we must assure that we rename that extension with "Other".
-        extfolder = "Other" if k=='' else k[1:].capitalize()
+        extfolder = "Other" if k=='' else (
+            k[1:].upper() if font == 1 else (
+                k[1:].capitalize() if font == 2 else k[1:].lower()
+            )
+        )
 
         ## This if checks if a found extension folder already exists in the current analyzed folder 
         ## How? isdir check that the extension folder, obtained through joining toghether curpath and the extfolder using Path.joinpath()
@@ -43,10 +57,13 @@ def organize(data):
         ## for each file of the retrieved list at the current key, move the file to the appropriate folder (based on the Key value).
         for file in v:
             ## checking that the file isn't a directory
-            if not os.path.isdir(Path(curpath).joinpath(file+k)):
+            _dir = file + k
+            _path = Path(curpath)
+            if not os.path.isdir(_path.joinpath(_dir)):
+            #if not os.path.isdir(_path.joinpath(_dir.lower())) or not os.path.isdir(_path.joinpath(_dir.upper())) or not os.path.isdir(_path.joinpath((_dir.lower()).capitalize())):
                 ## os.rename takes in input the absolute path of the file we need to move as first argument, and the absolute path of the new
                 ## directory we want to move that file in. We're using concatenation with "+" to improve complexity.
-                os.rename(Path(curpath).joinpath(file+k), Path(curpath).joinpath(extfolder).joinpath(file+k))
+                os.rename(_path.joinpath(_dir), _path.joinpath(extfolder).joinpath(_dir))
 
 ## print video intro and take folder path     
 def intro():
@@ -63,9 +80,11 @@ def intro():
     print(ascii_art)
     print("Insert path or Drop&Drag a folder to a specify where to organize files, leave blank if desired is <CURRENT FOLDER>")
     print("Desired Path: ", end='')
-
     ## getting user folder input
     folder_path = input()
+    
+    print("Folder name Style: 1. EXAMPLE - 2. Example - 3. example: (default is 2) ", end='')
+    font = input()
 
     ## check if folder path: exit otherwise
     if folder_path: 
@@ -75,7 +94,8 @@ def intro():
             print("Make sure to insert a correct path and try again.")
             exit(0)
     
-
+    ## return the font choice of the user
+    return int(font)
 
 
 ## entry point
@@ -86,9 +106,9 @@ if __name__ == '__main__':
     fdata = defaultdict(list)
 
     ## doing things
-    intro()
+    font = intro()
     get_files(fdata)
-    organize(fdata)
+    organize(fdata, font)
 
     # done
     print("Work Done!")
