@@ -2,7 +2,7 @@
 A small utility made to increase productivity and decrease effort organizing things on the desktop. 
 
 ### Requirements
-Make sure you have a python verions >= 3.
+Make sure you have a *python verions >= 3*.
 
 ### Usage
 Just download the script, and run it in any folder with:
