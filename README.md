@@ -1,5 +1,5 @@
 ## Py Organizer
-A small utility made to increase productivity and decrease effort organizing things on the desktop and folders.
+A small utility made to increase productivity and decrease effort organizing things on desktop and folders.
 
 ![Alt Text](https://i.imgur.com/rxxv7bm.gif)
 
