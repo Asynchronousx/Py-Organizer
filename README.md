@@ -1,6 +1,9 @@
 ## Py Organizer
 A small utility made to increase productivity and decrease effort organizing things on the desktop. 
 
+![Alt Text](https://i.imgur.com/rxxv7bm.gif)
+
+
 ### Requirements
 Make sure you have a *python verions >= 3*.
 
