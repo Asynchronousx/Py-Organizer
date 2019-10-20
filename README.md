@@ -12,5 +12,5 @@ Just download the script, and run it in any folder with:
 python organizer.py
 ```
 Once opened, write the path to the folder you'd like to organize, drag & drop the folder into the terminal or leave it blank to organize the current folder. <br>
-Select the font style (CAPS - Capitalized - lower) for your newly created folder and press enter: wait a moment & enjoy your clean desktop.
+Select the font style (CAPS - Capitalized - lower) for your newly created folder and press enter: wait a moment & enjoy your clean desktop/folder.
 
