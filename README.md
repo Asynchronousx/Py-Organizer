@@ -2,7 +2,6 @@
 A small utility made to increase productivity and decrease effort organizing things on the desktop. 
 
 ![Alt Text](https://i.imgur.com/rxxv7bm.gif)
-<img src="https://i.imgur.com/rxxv7bm.gif" "width="200" height="400"/>
 
 ### Requirements
 Make sure you have a *python verions >= 3*.
