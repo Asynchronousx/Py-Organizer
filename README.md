@@ -1,7 +1,7 @@
 ## Py Organizer
 A small utility made to increase productivity and decrease effort organizing things on the desktop. 
 
-![Alt Text](https://i.imgur.com/rxxv7bm.gif)
+![Alt Text](https://i.imgur.com/rxxv7bm.gif | width=300)
 
 
 ### Requirements
