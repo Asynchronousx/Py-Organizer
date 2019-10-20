@@ -1,4 +1,5 @@
 import os
+import shutil
 from enum import Enum
 from pathlib import Path
 from pprint import pprint
@@ -33,7 +34,6 @@ def organize(data, font):
         ## getting the current cwd
         curpath = os.getcwd()
         
-        
         ## Since we could have the "empty name folder ''", we must assure that we rename that extension with "Other".
         extfolder = "Other" if k=='' else (
             k[1:].upper() if font == 1 else (
@@ -54,10 +54,10 @@ def organize(data, font):
             _dir = file + k
             _path = Path(curpath)
             if not os.path.isdir(_path.joinpath(_dir)):
-            #if not os.path.isdir(_path.joinpath(_dir.lower())) or not os.path.isdir(_path.joinpath(_dir.upper())) or not os.path.isdir(_path.joinpath((_dir.lower()).capitalize())):
-                ## os.rename takes in input the absolute path of the file we need to move as first argument, and the absolute path of the new
-                ## directory we want to move that file in. We're using concatenation with "+" to improve complexity.
-                os.rename(_path.joinpath(_dir), _path.joinpath(extfolder).joinpath(_dir))
+                #if not os.path.isdir(_path.joinpath(_dir.lower())) says that if the current analyzed file isn't a folder, then
+                ## shutil.move takes in input the absolute path of the file we need to move as first argument, and the absolute path of the new
+                ## directory we want to move that file in. 
+                shutil.move(_path.joinpath(_dir), _path.joinpath(extfolder).joinpath(_dir))
 
 ## print video intro and take folder path     
 def intro():
